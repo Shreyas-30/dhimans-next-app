@@ -17,7 +17,7 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 
-export default function uploadFaq() {
+export default function UploadFaq() {
   const [image, setImage] = useState<File>();
   const toast = useToast();
 
@@ -150,7 +150,8 @@ export default function uploadFaq() {
                   >
                     <input {...getInputProps()} id="image" name="image" />
                     <Box>
-                      Drag 'n' drop some image here, or click to select file
+                      Drag &apos;n&apos; drop some image here, or click to
+                      select file
                     </Box>
                     <Box fontSize="sm">(Only 1 image supported)</Box>
                   </Box>
@@ -178,7 +179,11 @@ export default function uploadFaq() {
               <li>
                 {image.name} - {(image.size / (1024 * 1024)).toFixed(2)} MB
               </li>
-              <Image src={URL.createObjectURL(image)} objectFit="cover" />
+              <Image
+                src={URL.createObjectURL(image)}
+                objectFit="cover"
+                alt={image.name}
+              />
             </Box>
           </Box>
         ) : (

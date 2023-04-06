@@ -134,7 +134,7 @@ const NavLink = ({ children, href }: NavProps) => (
   </Link>
 );
 
-export default function withAction() {
+export default function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { data: session, status } = useSession();
 

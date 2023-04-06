@@ -145,8 +145,8 @@ export default function Upload() {
                     {images.length === 0 ? (
                       <Box>
                         <Box>
-                          Drag 'n' drop some files here, or click to select
-                          files
+                          Drag &apos;n&apos; drop some files here, or click to
+                          select files
                         </Box>
                         <Box fontSize="sm">(Up to 10 images)</Box>
                       </Box>
@@ -192,6 +192,7 @@ export default function Upload() {
                           src={URL.createObjectURL(file)}
                           //   boxSize="500"
                           objectFit="cover"
+                          alt={file.name}
                         />
                       </Box>
                     ))}

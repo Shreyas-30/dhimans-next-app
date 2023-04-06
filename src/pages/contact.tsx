@@ -32,7 +32,7 @@ const ContactSchema = Yup.object().shape({
     .required("Required"),
 });
 
-export default function contact() {
+export default function Contact() {
   const toast = useToast();
   return (
     <Layout>

@@ -63,11 +63,7 @@ export default function ProductPage() {
               >
                 {data.title}
               </Heading>
-              <Text
-                color={useColorModeValue("gray.900", "gray.400")}
-                fontWeight={300}
-                fontSize={"2xl"}
-              >
+              <Text color={"gray.900"} fontWeight={300} fontSize={"2xl"}>
                 ₹ 12000
               </Text>
             </Box>
@@ -75,18 +71,10 @@ export default function ProductPage() {
             <Stack
               spacing={{ base: 4, sm: 6 }}
               direction={"column"}
-              divider={
-                <StackDivider
-                  borderColor={useColorModeValue("gray.200", "gray.600")}
-                />
-              }
+              divider={<StackDivider borderColor={"gray.200"} />}
             >
               <VStack spacing={{ base: 4, sm: 6 }}>
-                <Text
-                  color={useColorModeValue("gray.500", "gray.400")}
-                  fontSize={"2xl"}
-                  fontWeight={"300"}
-                >
+                <Text color={"gray.500"} fontSize={"2xl"} fontWeight={"300"}>
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod tempor invidunt ut labore
                 </Text>
@@ -95,7 +83,7 @@ export default function ProductPage() {
               <Box>
                 <Text
                   fontSize={{ base: "16px", lg: "18px" }}
-                  color={useColorModeValue("yellow.500", "yellow.300")}
+                  color={"yellow.500"}
                   fontWeight={"500"}
                   textTransform={"uppercase"}
                   mb={"4"}
@@ -119,7 +107,7 @@ export default function ProductPage() {
               <Box>
                 <Text
                   fontSize={{ base: "16px", lg: "18px" }}
-                  color={useColorModeValue("yellow.500", "yellow.300")}
+                  color={"yellow.500"}
                   fontWeight={"500"}
                   textTransform={"uppercase"}
                   mb={"4"}
@@ -181,8 +169,8 @@ export default function ProductPage() {
               mt={8}
               size={"lg"}
               py={"7"}
-              bg={useColorModeValue("gray.900", "gray.50")}
-              color={useColorModeValue("white", "gray.900")}
+              bg={"gray.900"}
+              color={"white"}
               textTransform={"uppercase"}
               _hover={{
                 transform: "translateY(2px)",

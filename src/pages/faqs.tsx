@@ -11,7 +11,7 @@ import {
 import { Faq } from "@prisma/client";
 import { useEffect, useState } from "react";
 
-export default function faqs() {
+export default function Faqs() {
   const [data, setData] = useState<Faq[]>();
   const [isLoading, setLoading] = useState(false);
 
