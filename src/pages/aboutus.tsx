@@ -7,7 +7,7 @@ export default function Aboutus() {
   return (
     <Layout>
       <Stack textAlign="center" py={10} px={6} alignItems="center" minH="60vh">
-        <Image src="/../public/logo.png" height="200" width="400" alt="" />
+        <Image src="/logo.png" height="200" width="400" alt="" />
 
         <Heading as="h2" size="xl" mt={6} mb={2}>
           About us

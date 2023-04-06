@@ -96,12 +96,7 @@ export default function Footer() {
           <Stack spacing={6} align="center">
             <Box>
               {/* <Logo color={useColorModeValue("gray.700", "white")} /> */}
-              <Image
-                src="/../public/logo.png"
-                height={150}
-                width={300}
-                alt=""
-              />
+              <Image src="/logo.png" height={150} width={300} alt="" />
             </Box>
             <Text fontSize={"sm"}>© 2023 Dhimans. All rights reserved</Text>
             <Stack direction={"row"} spacing={6}>

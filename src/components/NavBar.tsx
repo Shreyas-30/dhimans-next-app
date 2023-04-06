@@ -158,7 +158,7 @@ export default function NavBar() {
             <Link href="/">
               <Box>
                 <Image
-                  src="/../public/logo.png"
+                  src="/logo.png"
                   alt="Dhimans"
                   width="200"
                   height="100"
