@@ -6,31 +6,50 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  Center,
   Heading,
+  Spinner,
 } from "@chakra-ui/react";
 import { Faq } from "@prisma/client";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import useSwr from "swr";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Faqs() {
-  const [data, setData] = useState<Faq[]>();
-  const [isLoading, setLoading] = useState(false);
+  // const [data, setData] = useState<Faq[]>();
+  // const [isLoading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    fetch("/api/getFaqs")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      });
-  }, []);
+  const { data, error, isLoading } = useSwr<Faq[]>("/api/getFaqs", fetcher);
 
-  if (isLoading) return <p>Loading...</p>;
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetch("/api/getFaqs")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setData(data);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+  if (isLoading)
+    return (
+      <Center h="100vh" w={"100vw"}>
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Center>
+    );
   if (!data) return <p>No data</p>;
 
   return (
     <Layout>
-      <Box minH={"70vh"}>
+      <Box minH={"70vh"} textAlign="center">
+        <Heading my={4}>FAQs</Heading>
         <Accordion defaultIndex={[1]} allowMultiple>
           {data.map((faq) => {
             return (

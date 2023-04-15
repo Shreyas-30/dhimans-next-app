@@ -56,16 +56,27 @@ model User {
 // }
 
 model Product {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String
   images      String[]
+  fobPrice    String?
+  exworkPrice String?
+  moq         String?
+  categoryIDs String[]   @db.ObjectId
+  categories  Category[] @relation(fields: [categoryIDs], references: [id])
+  color       String?
+  length      String?
+  breadth     String?
+  height      String?
+  features    String[]
 }
 
 model Faq {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
   question String
   answer   String
+  section  String?
   image    String?
   video    String?
 }
@@ -76,4 +87,11 @@ model ContactLead {
   email     String
   message   String
   updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  productIDs String[]  @db.ObjectId
+  products   Product[] @relation(fields: [productIDs], references: [id])
 }

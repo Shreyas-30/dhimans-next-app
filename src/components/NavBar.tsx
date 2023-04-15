@@ -43,7 +43,7 @@
 //         <Button as={Link} href="/collection" mr={4}>
 //           Browse Collection
 //         </Button>
-//         <Button as={Link} href="/upload" mr={4}>
+//         <Button as={Link} href="/uploadProduct" mr={4}>
 //           Add product
 //         </Button>
 //         <Button as={Link} href="/faqs" mr={4}>
@@ -214,7 +214,7 @@ export default function NavBar() {
                   )}
                 </MenuButton>
                 <MenuList>
-                  <Link href="/upload">
+                  <Link href="/uploadProduct">
                     <MenuItem icon={<AddIcon />}>Add Product</MenuItem>
                   </Link>
                   <Link href="/uploadFaq">

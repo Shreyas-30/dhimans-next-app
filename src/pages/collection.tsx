@@ -2,9 +2,11 @@ import { Layout } from "@/components/Layout";
 import {
   Card,
   CardBody,
+  Center,
   Heading,
   Image,
   SimpleGrid,
+  Spinner,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -34,7 +36,18 @@ export default function Collection() {
     fetcher
   );
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading)
+    return (
+      <Center h="100%" w={"100vw"}>
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Center>
+    );
   if (!data) return <p>No data</p>;
   //   const data = await fetch("/api/collection");
   //   console.log(data.json());
