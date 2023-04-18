@@ -1,4 +1,9 @@
 import Head from "next/head";
+import FeaturedProduct from "@/pages/FeaturedProduct";
+import HomeFaq from "@/pages/homeFaq";
+import Certifications from "@/pages/certifications";
+import PaymentShip from "@/pages/paymentShipping";
+import EnquiryForm from "@/pages/enquiryForm";
 import {
   Box,
   Heading,
@@ -15,8 +20,13 @@ import {
 export default function ComingSoon() {
   return (
     <>
-      <Container maxW={"3xl"}>
-        <Stack
+      {/* <Container maxW={"3xl"}> */}
+        <FeaturedProduct/>
+        <HomeFaq/>
+        <Certifications/>
+        <PaymentShip/>
+        <EnquiryForm/>
+        {/* <Stack
           as={Box}
           textAlign={"center"}
           spacing={{ base: 8, md: 14 }}
@@ -80,10 +90,11 @@ export default function ComingSoon() {
               >
                 Lets Explore
               </Text>
-            </Box>
+            </Box
           </Stack>
-        </Stack>
-      </Container>
+        </Stack> */}
+     
+      {/* </Container> */}
     </>
   );
 }
