@@ -80,8 +80,8 @@ export default function UploadProduct() {
 
                 const formData = new FormData();
 
-                const cloud_name = "dlmv69lmo";
-                const api_key = "324762793819118";
+                const cloud_name = "dpzazvckq";
+                const api_key = "387695247418433";
                 const url =
                   "https://api.cloudinary.com/v1_1/" +
                   cloud_name +
