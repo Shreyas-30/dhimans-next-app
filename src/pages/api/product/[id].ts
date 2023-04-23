@@ -6,11 +6,21 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { query, method } = req;
-
-  if (method != "GET") return res.status(405).end(`Method Not Allowed`);
-
   const id = query.id as string;
-  const r = await prisma.product.findUnique({ where: { id } });
 
-  res.status(200).json(r);
+  if (method === "GET") {
+    // type ProductWithCategory = Prisma.ProductGetPayload<{
+    //   include: { categories: true };
+    // }>;
+    const r = await prisma.product.findUnique({
+      where: { id },
+      include: { categories: true },
+    });
+
+    res.status(200).json(r);
+  } else if (method === "DELETE") {
+    const r = await prisma.product.findUnique({ where: { id } });
+
+    res.status(200).json("nothing deleted");
+  } else res.status(403).json("method not allowed!");
 }

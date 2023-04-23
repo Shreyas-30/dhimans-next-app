@@ -1,30 +1,28 @@
-import { Product } from "@prisma/client";
-import { useRouter } from "next/router";
-import useSwr from "swr";
-import DefaultErrorPage from "next/error";
-import {
-  Container,
-  Image,
-  Text,
-  SimpleGrid,
-  Flex,
-  Stack,
-  Heading,
-  useColorModeValue,
-  StackDivider,
-  VStack,
-  List,
-  ListItem,
-  Button,
-  Box,
-} from "@chakra-ui/react";
+import ImageSlider from "@/components/ImageSlider";
 import { Layout } from "@/components/Layout";
 import NotFound from "@/components/NotFound";
-import ImageSlider from "@/components/ImageSlider";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  List,
+  ListItem,
+  SimpleGrid,
+  Stack,
+  StackDivider,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
+import { Prisma, Product } from "@prisma/client";
+import { useRouter } from "next/router";
+import useSwr from "swr";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function ProductPage() {
   const { query } = useRouter();
+
   const { data, error, isLoading } = useSwr<Product>(
     query.id ? `/api/product/${query.id}` : null,
     fetcher
@@ -64,7 +62,10 @@ export default function ProductPage() {
                 {data.title}
               </Heading>
               <Text color={"gray.900"} fontWeight={300} fontSize={"2xl"}>
-                ₹ 12000
+                ExWork Price: ₹ {data.exworkPrice}
+              </Text>
+              <Text color={"gray.900"} fontWeight={300} fontSize={"2xl"}>
+                FOB Price: ₹ {data.fobPrice}
               </Text>
             </Box>
 
@@ -93,14 +94,9 @@ export default function ProductPage() {
 
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                   <List spacing={2}>
-                    <ListItem>Chronograph</ListItem>
-                    <ListItem>Master Chronometer Certified</ListItem>{" "}
-                    <ListItem>Tachymeter</ListItem>
-                  </List>
-                  <List spacing={2}>
-                    <ListItem>Anti‑magnetic</ListItem>
-                    <ListItem>Chronometer</ListItem>
-                    <ListItem>Small seconds</ListItem>
+                    {data.features.map((feature) => (
+                      <ListItem>{feature}</ListItem>
+                    ))}
                   </List>
                 </SimpleGrid>
               </Box>
@@ -114,56 +110,30 @@ export default function ProductPage() {
                 >
                   Product Details
                 </Text>
-
                 <List spacing={2}>
                   <ListItem>
                     <Text as={"span"} fontWeight={"bold"}>
-                      Between lugs:
-                    </Text>{" "}
-                    20 mm
+                      Color:
+                    </Text>
+                    {data.color}
                   </ListItem>
                   <ListItem>
                     <Text as={"span"} fontWeight={"bold"}>
-                      Bracelet:
+                      MOQ:
                     </Text>{" "}
-                    leather strap
+                    {data.moq}
                   </ListItem>
                   <ListItem>
                     <Text as={"span"} fontWeight={"bold"}>
-                      Case:
+                      Category:
                     </Text>{" "}
-                    Steel
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Case diameter:
-                    </Text>{" "}
-                    42 mm
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Dial color:
-                    </Text>{" "}
-                    Black
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Crystal:
-                    </Text>{" "}
-                    Domed, scratch‑resistant sapphire crystal with
-                    anti‑reflective treatment inside
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Water resistance:
-                    </Text>{" "}
-                    5 bar (50 metres / 167 feet){" "}
+                    {/* {data.categories} */}
                   </ListItem>
                 </List>
               </Box>
             </Stack>
 
-            <Button
+            {/* <Button
               rounded={"none"}
               w={"full"}
               mt={8}
@@ -184,10 +154,10 @@ export default function ProductPage() {
               direction="row"
               alignItems="center"
               justifyContent={"center"}
-            >
-              {/* <MdLocalShipping /> */}
-              <Text>2-3 business days delivery</Text>
-            </Stack>
+            > */}
+            {/* <MdLocalShipping /> */}
+            {/* <Text>2-3 business days delivery</Text> */}
+            {/* </Stack> */}
           </Stack>
         </SimpleGrid>
       </Container>
