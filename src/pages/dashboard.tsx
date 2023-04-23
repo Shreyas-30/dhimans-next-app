@@ -165,6 +165,7 @@ export default function Dashboard() {
                                 src={product.images[0]}
                                 width={50}
                                 height={50}
+                                alt={product.title}
                               />
                             </PopoverTrigger>
                             <PopoverContent>
@@ -176,6 +177,7 @@ export default function Dashboard() {
                                   src={product.images[0]}
                                   width={"100%"}
                                   height={"100%"}
+                                  alt={product.title}
                                 />
                               </PopoverBody>
                             </PopoverContent>

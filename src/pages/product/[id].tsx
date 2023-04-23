@@ -95,7 +95,7 @@ export default function ProductPage() {
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                   <List spacing={2}>
                     {data.features.map((feature) => (
-                      <ListItem>{feature}</ListItem>
+                      <ListItem key={feature}>{feature}</ListItem>
                     ))}
                   </List>
                 </SimpleGrid>
